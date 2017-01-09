@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(morgan('dev'));
+app.use(morgan('common'));
 
 app.get('/', (req, res) => {
     res.json({
