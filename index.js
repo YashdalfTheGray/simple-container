@@ -7,7 +7,16 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
+    res.json({
+        server: 'echo-chamber',
+        status: 'ok',
+        method: req.method,
+        message: 'GET /get to echo back query params and POST to /post to echo back request body.'
+    });
+});
+
+app.get('/get', (req, res) => {
     res.json({
         server: 'echo-chamber',
         status: 'ok',
@@ -16,7 +25,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.post('*', (req, res) => {
+app.post('/post', (req, res) => {
     res.json({
         server: 'echo-chamber',
         status: 'ok',
@@ -24,5 +33,6 @@ app.post('*', (req, res) => {
         requestBody: req.body
     });
 });
+
 
 app.listen(8080, () => console.log('Server now running at port 8080'));
