@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -32,6 +34,11 @@ app.post('/post', (req, res) => {
         method: 'POST',
         requestBody: req.body
     });
+});
+
+app.get('/env', (req, res) => {
+    const { TEST_VAR, ANOTHER_TEST_VAR, STRING_TEST_VAR } = process.env;
+    res.json({ TEST_VAR, ANOTHER_TEST_VAR, STRING_TEST_VAR });
 });
 
 
