@@ -37,8 +37,12 @@ app.post('/post', (req, res) => {
 });
 
 app.get('/env', (req, res) => {
-    const { TEST_VAR, ANOTHER_TEST_VAR, STRING_TEST_VAR } = process.env;
-    res.json({ TEST_VAR, ANOTHER_TEST_VAR, STRING_TEST_VAR });
+    const { TEST_VAR, ANOTHER_TEST_VAR } = process.env;
+    res.json({
+        server: 'echo-chamber',
+        status: 'ok',
+        env: { TEST_VAR, ANOTHER_TEST_VAR }
+    });
 });
 
 
