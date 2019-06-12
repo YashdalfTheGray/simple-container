@@ -10,40 +10,40 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 
 app.get('/', (req, res) => {
-    res.json({
-        server: 'echo-chamber',
-        status: 'ok',
-        method: req.method,
-        message: 'GET /get to echo back query params and POST to /post to echo back request body.'
-    });
+  res.json({
+    server: 'echo-chamber',
+    status: 'ok',
+    method: req.method,
+    message:
+      'GET /get to echo back query params and POST to /post to echo back request body.'
+  });
 });
 
 app.get('/get', (req, res) => {
-    res.json({
-        server: 'echo-chamber',
-        status: 'ok',
-        method: 'GET',
-        queryParams: req.query
-    });
+  res.json({
+    server: 'echo-chamber',
+    status: 'ok',
+    method: 'GET',
+    queryParams: req.query
+  });
 });
 
 app.post('/post', (req, res) => {
-    res.json({
-        server: 'echo-chamber',
-        status: 'ok',
-        method: 'POST',
-        requestBody: req.body
-    });
+  res.json({
+    server: 'echo-chamber',
+    status: 'ok',
+    method: 'POST',
+    requestBody: req.body
+  });
 });
 
 app.get('/env', (req, res) => {
-    const { TEST_VAR, ANOTHER_TEST_VAR } = process.env;
-    res.json({
-        server: 'echo-chamber',
-        status: 'ok',
-        env: { TEST_VAR, ANOTHER_TEST_VAR }
-    });
+  const { TEST_VAR, ANOTHER_TEST_VAR } = process.env;
+  res.json({
+    server: 'echo-chamber',
+    status: 'ok',
+    env: { TEST_VAR, ANOTHER_TEST_VAR }
+  });
 });
-
 
 app.listen(8080, () => console.log('Server now running at port 8080'));
