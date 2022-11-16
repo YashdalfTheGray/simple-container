@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     status: 'ok',
     method: req.method,
     message:
-      'GET /get to echo back query params and POST to /post to echo back request body.'
+      'GET /get to echo back query params and POST to /post to echo back request body.',
   });
 });
 
@@ -24,7 +24,7 @@ app.get('/get', (req, res) => {
     server: 'echo-chamber',
     status: 'ok',
     method: 'GET',
-    queryParams: req.query
+    queryParams: req.query,
   });
 });
 
@@ -33,7 +33,7 @@ app.post('/post', (req, res) => {
     server: 'echo-chamber',
     status: 'ok',
     method: 'POST',
-    requestBody: req.body
+    requestBody: req.body,
   });
 });
 
@@ -42,7 +42,7 @@ app.get('/env', (req, res) => {
   res.json({
     server: 'echo-chamber',
     status: 'ok',
-    env: { TEST_VAR, ANOTHER_TEST_VAR }
+    env: { TEST_VAR, ANOTHER_TEST_VAR },
   });
 });
 
