@@ -46,4 +46,7 @@ app.get('/env', (req, res) => {
   });
 });
 
-app.listen(8080, () => console.log('Server now running at port 8080'));
+(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 10 * 60 * 1000));
+  app.listen(8080, () => console.log('Server now running at port 8080'));
+})();
