@@ -2,6 +2,12 @@
 
 Simple express based containerized server which basically serves as an echo chamber
 
+## Building and running
+
+Make sure you have Docker intalled and running. You can check whether you have this by running `docker ps -a`. Once that command succeeds, run `docker build -t simple-container .` to build the container. Then run `docker run -d --name test-server -p 8080:8080 simple-container` to run the container in the background. If you want to run it in the foreground, replace the `-d` with a `-it` in the command above.
+
+Now you should be able to talk to the container at port 8080.
+
 ## API
 
 ### `/`
